@@ -20,6 +20,6 @@ RUN pip3 install mopidy-jellyfin mopidy-musicbox-webclient
 
 # configure
 COPY ./jellyfin.ini .
-RUN cat ./jellyfin.ini >> /etc/mopidy/mopidy.conf
+RUN mkdir -p ~/.config/mopidy && cat ./jellyfin.ini >> ~/.config/mopidy/mopidy.conf
 
-CMD /usr/bin/mopidy --config /etc/mopidy/mopidy.conf
+CMD mopidy config && mopidy

@@ -13,3 +13,5 @@ map:
   - config:rw
 devices:
   - /dev/snd
+ports:
+  6600/tcp: 6600
