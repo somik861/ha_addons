@@ -11,7 +11,7 @@ RUN git clone https://github.com/somik861/jellycli.git .
 
 # bootstrap
 COPY ./build_bootstrap.sh .
-./build_bootstrap.sh
+RUN ./build_bootstrap.sh
 
 # build
 RUN go build . && ./jellycli --help
