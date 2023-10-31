@@ -15,3 +15,4 @@ devices:
   - /dev/snd
 ports:
   6600/tcp: 6600
+  6680/tcp: 6680
