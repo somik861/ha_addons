@@ -9,6 +9,10 @@ RUN apt install -y golang libasound2-dev git
 WORKDIR /jellycli
 RUN git clone https://github.com/somik861/jellycli.git .
 
+# bootstrap
+COPY ./build_bootstrap.sh .
+./build_bootstrap.sh
+
 # build
 RUN go build . && ./jellycli --help
 
