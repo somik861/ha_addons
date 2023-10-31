@@ -17,10 +17,11 @@ RUN apt install -y mopidy mopidy-mpd gstreamer1.0-plugins-bad python3-pip
 
 # install jellyfin extensions
 RUN pip3 install mopidy-jellyfin mopidy-musicbox-webclient
-
+RUN apt install -y vim
 
 # configure
 COPY ./jellyfin.ini .
 RUN cat ./jellyfin.ini >> /etc/mopidy/mopidy.conf
 
-CMD /usr/bin/mopidy
+CMD vim /etc/mopidy/mopidy.conf && mopidyctl config && /usr/bin/mopidy --config /etc/mopidy/mopidy.conf
+#CMD mopidyctl config && /usr/bin/mopidy
