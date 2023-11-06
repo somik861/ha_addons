@@ -1,6 +1,6 @@
 name: "mopidy-speaker"
 description: "Mopidy installation tuned to be a speaker for Jellyfin"
-version: "1.0.5"
+version: "1.0.6"
 slug: "mopidy-speaker"
 
 arch:

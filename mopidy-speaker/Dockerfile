@@ -29,4 +29,4 @@ RUN mkdir -p ~/.config/mopidy && cat ./jellyfin.ini >> ~/.config/mopidy/mopidy.c
 
 EXPOSE 6600
 EXPOSE 6680
-CMD mopidy config && python3 ./program_control/program_control.py program_control.yaml mopidy && sleep 300
+CMD mopidy config && python3 program_control/program_control.py program_control.yaml mopidy && sleep 300
