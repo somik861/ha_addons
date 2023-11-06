@@ -20,6 +20,7 @@ RUN pip3 install mopidy-jellyfin mopidy-musicbox-webclient
 
 # get program control
 RUN git clone https://github.com/somik861/program-control.git
+RUN pip3 install -r program-control/requirements.txt
 
 # configure
 COPY ./jellyfin.ini .
