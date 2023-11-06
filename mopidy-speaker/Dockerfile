@@ -4,7 +4,7 @@ from debian:bullseye
 RUN apt update && apt upgrade -y
 
 # install audiopackages for HA
-RUN apt install -y libasound2-plugins wget
+RUN apt install -y libasound2-plugins wget git
 
 # add mopidy repo
 RUN mkdir -p /etc/apt/keyrings
@@ -18,10 +18,14 @@ RUN apt install -y mopidy mopidy-mpd gstreamer1.0-plugins-bad python3-pip
 # install jellyfin extensions
 RUN pip3 install mopidy-jellyfin mopidy-musicbox-webclient
 
+# get program control
+RUN git clone https://github.com/somik861/program-control.git
+
 # configure
 COPY ./jellyfin.ini .
+COPY ./program_control.yaml .
 RUN mkdir -p ~/.config/mopidy && cat ./jellyfin.ini >> ~/.config/mopidy/mopidy.conf
 
 EXPOSE 6600
 EXPOSE 6680
-CMD mopidy config && mopidy
+CMD mopidy config && python3 ./program_control.py program_control.yaml mopidy && sleep 300
