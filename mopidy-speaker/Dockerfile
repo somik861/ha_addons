@@ -1,4 +1,4 @@
-from debian:bullseye
+FROM debian:bullseye
 
 # update system
 RUN apt update && apt upgrade -y
@@ -16,7 +16,8 @@ RUN apt update && apt upgrade -y
 RUN apt install -y mopidy mopidy-mpd gstreamer1.0-plugins-bad python3-pip
 
 # install jellyfin extensions
-RUN pip3 install mopidy-jellyfin mopidy-musicbox-webclient
+RUN pip3 install mopidy-jellyfin 
+RUN pip3 install mopidy-musicbox-webclient
 
 # get program control
 RUN git clone https://github.com/somik861/program-control.git

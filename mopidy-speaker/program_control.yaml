@@ -1,6 +1,9 @@
 stdout:
   # if 'Exception' appears in in standard output, call exit_program action (exits program)
-  'Exception': ['exit_program']
+  "Exception":
+    - action: "exit_program"
+
 stderr:
   # if 'Exception' appears in in standard error, call exit_program action (exits program)
-  'Exception': ['exit_program']
+  "Exception":
+    - action: "exit_program"
